@@ -1,0 +1,175 @@
+\documentclass[
+  lualatex,
+  aspectratio=169,
+  fleqn,
+  14pt,
+]{beamer}
+%\batchmode
+
+\usetheme[progressbar=frametitle]{Metropolis}
+%\setbeameroption{show notes on second screen=bottom}
+
+\usepackage{xparse}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx,xcolor}
+\usepackage{pxrubrica}
+\usepackage{calc}
+\usepackage[absolute,overlay]{textpos}
+%\usepackage{enumitem}
+\usepackage[1.7]{bxpdfver}
+\usepackage{pdfcomment}
+\usepackage{ulem}
+\usepackage{stackengine}
+\usepackage{appendixnumberbeamer}
+\usepackage{tabto}
+\usepackage[superscript]{cite}
+\usepackage{siunitx}
+\usepackage{gradient-text}
+
+\RenewDocumentCommand\citeform{m}{[#1]}
+
+% フォント
+\usepackage[lining,tabular,sfdefault]{FiraSans}
+\usepackage[mathrm=sym,mathbf=sym]{unicode-math}
+\setmathfont{Fira Math}
+\usepackage[no-math,deluxe,haranoaji]{luatexja-preset}
+\RenewDocumentCommand\kanjifamilydefault{}{\gtdefault}
+
+% 打ち消し線関連
+\RenewDocumentCommand\ULthickness{}{.1\zh}
+% 二重打ち消し
+\NewDocumentCommand\dsout{m}{%
+  \stackengine{.2\zh}{#1}{%
+    \stackengine{-.3\zh}{\sout{\hphantom{#1}}}{\sout{\hphantom{#1}}}{O}{c}{F}{F}{L}%
+  }{O}{c}{F}{F}{L}}
+
+% 下に文字置くやつ
+\NewDocumentCommand\replace{mm}{%
+  \smash{\stackengine{-1\zh}{\dsout{#1}}{#2}{O}{c}{F}{F}{L}}}
+
+% 床関数
+\DeclarePairedDelimiter\floor\lfloor\rfloor
+
+\usepackage{hyperref}
+
+\title{スライドテンプレート}
+\subject{○○集会\#XXX}
+\author[KusaReMKN]{上羽 未栞（a.k.a. KusaReMKN）}
+\institute{%
+  \url{https://KusaReMKN.com/}\\
+  Twitter: \href{https://twitter.com/KusaReMKN}{@KusaReMKN}}
+\keywords{slide; LaTeX; beamer; Metropolis}
+\date{YYYY-mm-dd}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \thispagestyle{empty}
+  \note{
+    はじまるよ〜。
+
+    「スライドテンプレート」と題して、
+    上羽未栞が発表するよ。
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{今回のおはなし}
+
+  \vspace{.25\zh}
+  \tableofcontents
+  \note{
+    今回の発表の流れはこんな感じだよ。
+    おおよそXX分くらいで進められたらいいな。
+  }
+\end{frame}
+
+\section*{みかんちゃんについて}
+\note{
+  まずは自己紹介するよ〜。
+}
+
+\begin{frame}
+  \frametitle{自称・大天才美少女プログラミング初心者}
+
+  \begin{textblock*}{0.5\paperwidth}(-0.3cm, 3.3cm)
+    \includegraphics[width=0.35\paperwidth]{./images/mikanchan.png}
+  \end{textblock*}
+  \begin{columns}
+    \begin{column}{0.30\textwidth}
+      \\~\\[-.25\baselineskip]
+    \end{column}
+    \begin{column}{0.69\textwidth}
+      \\~\\[-.25\baselineskip]
+      「\ruby{上羽}{うわ|ば} \ruby{未栞}{み|かん}」
+      あるいは「\ruby[g]{KusaReMKN}{くされみかん}」\\
+      \hspace{1.5\zw}\textbf{みかんちゃん}って呼んでね！
+      \\~\\[-.5\baselineskip]
+
+      17{\scriptsize(18)}歳のJK（超重要）\\
+      \hspace{1.5\zw}実はプログラマでもエンジニアでもない\\
+      \hspace{1.5\zw}普段はホラを吹いて生活している\\
+      \hspace{1.5\zw}古い計算機っぽいものが大好き
+      \\~\\[-.5\baselineskip]
+
+      Twitterで思想を垂れ流すことが得意\\
+      \hspace{1.5\zw}\url{https://kusaremkn.com/}も見てね
+    \end{column}
+  \end{columns}
+  \note{
+    自称大天才美少女プログラミング初心者の上羽未栞だよ。
+    みかんちゃんって呼ばれると大変喜ぶよ。
+
+    ｲﾁﾅﾅ歳のJKだよ。重要だよ。
+    大天才とか偉ぶっているけれど、実はプログラマでもエンジニアでもないよ。
+    普段は人々にホラを吹いて生活しているよ。
+    古い計算機っぽいものが大好きで、いろいろなものに手を出しては
+    それに掛けられた呪いを解くことを趣味にしているよ。
+
+    Twitterや自分のウェブサイトで思想を垂れ流すのが得意だよ。
+    暇な人は眺めてみてね。
+  }
+\end{frame}
+
+\section{はじめに}
+\note{
+  はじめのはなしだよ〜。
+}
+
+\begin{frame}
+  \frametitle{あにょにょまるぼぼ}
+
+  あばばまる三世
+
+  \note{
+    あにょにょまるぼぼはあばばまる三世だよ。
+  }
+\end{frame}
+
+\appendix
+
+\begin{frame}[standout]
+  おわりです
+
+  \note{
+    おわりだよ〜。
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{このスライドについて}
+
+  Written in BBBBB YYYY.
+
+  Permanent ID of this document: \texttt{XXXXXXXXXXXXXXXX}.
+
+  Copyright © YYYY KusaReMKN.
+
+  特記無き場合、プログラムやソースコードは MIT License で、\\
+  \hspace{1.5\zw}それ以外のコンテンツは CC-BY 4.0 で利用可能です。\\
+  \hspace{1.5\zw}一部の画像には別のライセンスが適用されるかもしれません。
+\end{frame}
+
+\end{document}
+% ex: se et ts=2 :
