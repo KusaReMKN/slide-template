@@ -12,7 +12,7 @@
 \usepackage{xparse}
 \usepackage{mathtools,amssymb}
 \usepackage{graphicx,xcolor}
-\usepackage{pxrubrica}
+\usepackage{luatexja-ruby}
 \usepackage{calc}
 \usepackage[absolute,overlay]{textpos}
 %\usepackage{enumitem}
@@ -34,6 +34,7 @@
 \setmathfont{Fira Math}
 \usepackage[no-math,match,deluxe,expert,noto]{luatexja-preset}
 \RenewDocumentCommand\kanjifamilydefault{}{\gtdefault}
+\ltjsetruby{fontcmd=\rubyfamily}% ルビにはルビのフォントを使う
 
 % 打ち消し線関連
 \RenewDocumentCommand\ULthickness{}{.1\zh}
@@ -105,8 +106,8 @@
     \end{column}
     \begin{column}{0.69\textwidth}
       \\~\\[-.25\baselineskip]
-      「\ruby{上羽}{うわ|ば} \ruby{未栞}{み|かん}」
-      あるいは「\ruby[g]{KusaReMKN}{くされみかん}」\\
+      「\ruby{上羽}{うわば} \ruby{未栞}{みかん}」
+      あるいは「\ruby{KusaReMKN}{くされみかん}」\\
       \hspace{1.5\zw}\textbf{みかんちゃん}って呼んでね！
       \\~\\[-.5\baselineskip]
 
