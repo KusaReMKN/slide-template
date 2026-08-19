@@ -3,65 +3,47 @@
   aspectratio=169,
   fleqn,
   14pt,
+  %handout,
 ]{beamer}
-%\batchmode
 
-\usetheme[progressbar=frametitle]{metropolis}
-%\setbeameroption{show notes on second screen=bottom}
+% beamer のテーマの設定
+\mode<presentation>{%
+  \usetheme{moloch}
+  \molochset{
+    progressbar=frametitle,
+    block=fill,
+    }
+}
+\mode<handout>{%
+  \setbeameroption{show notes on second screen=bottom}
+}
 
-\usepackage{xparse}
-\usepackage{mathtools,amssymb}
-\usepackage{graphicx,xcolor}
+% 日本語フォントの設定
+\usepackage[medium,book,lining]{FiraSans}
+\usepackage[scale=.9]{FiraMono}
+\usepackage[mathrm=sym,mathbf=sym]{firamath-otf}
+\usepackage[match,deluxe,expert]{luatexja-preset}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% ルビの設定
 \usepackage{luatexja-ruby}
-\usepackage{calc}
-\usepackage[absolute,overlay]{textpos}
-\usepackage[1.7]{bxpdfver}
-\usepackage{pdfcomment}
-\usepackage{ulem}
-\usepackage{stackengine}
-\usepackage{appendixnumberbeamer}
-\usepackage{tabto}
-\usepackage[superscript]{cite}
-\usepackage{siunitx}
-\usepackage{gradient-text}
+\ltjsetruby{fontcmd=\rubyfamily}
 
-\RenewDocumentCommand\citeform{m}{[#1]}
-
-% フォント
-\usepackage[lining,tabular,sfdefault]{FiraSans}
-\usepackage[mathrm=sym,mathbf=sym]{unicode-math}
-\setmathfont{Fira Math}
-\usepackage[no-math,match,deluxe,expert,noto]{luatexja-preset}
-\RenewDocumentCommand\kanjifamilydefault{}{\gtdefault}
-\ltjsetruby{fontcmd=\rubyfamily}% ルビにはルビのフォントを使う
-
-% 打ち消し線関連
-\RenewDocumentCommand\ULthickness{}{.1\zh}
-% 二重打ち消し
-\NewDocumentCommand\dsout{m}{%
-  \stackengine{.2\zh}{#1}{%
-    \stackengine{-.3\zh}{\sout{\hphantom{#1}}}{\sout{\hphantom{#1}}}{O}{c}{F}{F}{L}%
-  }{O}{c}{F}{F}{L}}
-
-% 下に文字置くやつ
-\NewDocumentCommand\replace{mm}{%
-  \smash{\stackengine{-1\zh}{\dsout{#1}}{#2}{O}{c}{F}{F}{L}}}
-
-% 床関数
-\DeclarePairedDelimiter\floor\lfloor\rfloor
-
-% itemize の左余白をほどよくする
-\setlength{\leftmargini}{1.41421356\zw}
-
+\usepackage{graphicx}
+\usepackage{jslogo}
 \usepackage{hyperref}
+
+\mode<handout>{
+  \setbeameroption{show notes}
+}
 
 \title{スライドテンプレート}
 \subject{○○集会\#XXX}
-\author[KusaReMKN]{上羽 未栞（a.k.a. KusaReMKN）}
+\author[KusaReMKN]{上羽 未栞（a.k.a.\ KusaReMKN）}
 \institute{%
   \url{https://KusaReMKN.com/}\\
   Twitter: \href{https://twitter.com/KusaReMKN}{@KusaReMKN}}
-\keywords{slide; LaTeX; beamer; Metropolis}
+\keywords{slide; LaTeX; beamer; moloch}
 \date{YYYY-mm-dd}
 
 \begin{document}
@@ -69,109 +51,90 @@
 \begin{frame}
   \titlepage
   \thispagestyle{empty}
-  \note{
-    はじまるよ〜。
-
-    「スライドテンプレート」と題して、
-    上羽未栞が発表するよ。
-  }
 \end{frame}
 
-\begin{frame}
-  \frametitle{今回のおはなし}
-
-  \vspace{.25\zh}
+\begin{frame}{今回のおはなし}
   \tableofcontents
-  \note{
-    今回の発表の流れはこんな感じだよ。
-    おおよそXX分くらいで進められたらいいな。
-  }
 \end{frame}
 
 \section*{みかんちゃんについて}
 \note{
-  まずは自己紹介するよ〜。
+  まずは自己紹介するよ。
 }
 
-\begin{frame}
-  \frametitle{自称・大天才美少女プログラミング初心者}
-
-  \begin{textblock*}{0.5\paperwidth}(-0.3cm, 3.3cm)
-    \includegraphics[width=0.35\paperwidth]{./images/mikanchan.png}
-  \end{textblock*}
+\begingroup
+\usebackgroundtemplate{%
+  \includegraphics[height=\paperheight]{./images/mikanbg.png}
+}
+\begin{frame}{自称・大天才美少女プログラミング初心者}
   \begin{columns}
-    \begin{column}{0.30\textwidth}
-      \\~\\[-.25\baselineskip]
+    \begin{column}{.4\textwidth}
+      \null
     \end{column}
-    \begin{column}{0.69\textwidth}
-      \\~\\[-.25\baselineskip]
-      「\ruby{上羽}{うわば} \ruby{未栞}{みかん}」
-      あるいは「\ruby{KusaReMKN}{くされみかん}」\\
-      \hspace{1.5\zw}\textbf{みかんちゃん}って呼んでね！
-      \\~\\[-.5\baselineskip]
+    \begin{column}{.7\textwidth}
+      「\ruby{上|羽|未|栞}{うわ|ば|み|かん}」
+      または「\ruby{KusaReMKN}{くされみかん}」\\
+      \hspace{1.5\zw}\textbf{\alert{みかんちゃん}}ってよんでね！
+      \vspace{\baselineskip}
 
-      17{\scriptsize(18)}歳のJK（超重要）\\
+      ｲﾁﾅﾅ歳のJK（超重要）\\
       \hspace{1.5\zw}実はプログラマでもエンジニアでもない\\
       \hspace{1.5\zw}普段はホラを吹いて生活している\\
-      \hspace{1.5\zw}古い計算機っぽいものが大好き
-      \\~\\[-.5\baselineskip]
+      \hspace{1.5\zw}古い計算機っぽいものや通信が大好き
+      \vspace{\baselineskip}
 
       Twitterで思想を垂れ流すことが得意\\
-      \hspace{1.5\zw}\url{https://kusaremkn.com/}も見てね
+      \hspace{1.5\zw}\url{https://kusaremkn.com/}もみてね
     \end{column}
   \end{columns}
   \note{
-    自称大天才美少女プログラミング初心者の上羽未栞だよ。
-    みかんちゃんって呼ばれると大変喜ぶよ。
+    自称・大天才美少女プログラミング初心者の上羽未栞だよ。
+    みかんちゃんってよばれると大変喜ぶよ。
 
     ｲﾁﾅﾅ歳のJKだよ。重要だよ。
-    大天才とか偉ぶっているけれど、実際のところプログラマでもエンジニアでもないよ。
+    大天才とか偉ぶっているけれど、
+    実際のところはプログラマでもエンジニアでもないよ。
     普段は人々にホラを吹いて生活しているよ。
-    古い計算機っぽいものが大好きで、
-    その流れで黒電話とか電話網を作ったりとかして遊んでいるよ。
+    古い計算機っぽいものとか通信とかが大好きで、
+    その流れで電話網と作ったりして遊ぶなどしているよ。
 
     Twitterや自分のウェブサイトで思想を垂れ流すのが得意だよ。
     暇な人は眺めてみてね。
   }
 \end{frame}
+\endgroup
 
 \section{はじめに}
-\note{
-  はじめのはなしだよ〜。
-}
 
-\begin{frame}
-  \frametitle{あにょにょまるぼぼ}
-
+\begin{frame}{あにょにょまるぼぼ}
   あばばまる三世
 
-  \note{
-    あにょにょまるぼぼはあばばまる三世だよ。
-  }
+  \begin{equation}
+    4 \arctan 1
+    = 4 \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2n+1}
+  \end{equation}
 \end{frame}
 
 \appendix
 
 \begin{frame}[standout]
   おわりです
-
-  \note{
-    おわりだよ〜。
-  }
 \end{frame}
 
-\begin{frame}
-  \frametitle{このスライドについて}
-
+\begin{frame}{このスライドについて}
   Written in BBBBB YYYY.
+  %Updated in BBBBB YYYY.
+  \vspace{\baselineskip}
 
   Permanent ID of this document: \texttt{XXXXXXXXXXXXXXXX}.
+  \vspace{\baselineskip}
 
-  Copyright © YYYY KusaReMKN.
+  Copyright {\copyright} 2026 KusaReMKN.
+  \vspace{\baselineskip}
 
-  特記無き場合、プログラムやソースコードは MIT License で、\\
-  \hspace{1.5\zw}それ以外のコンテンツは CC-BY 4.0 で利用可能です。\\
-  \hspace{1.5\zw}一部の画像には別のライセンスが適用されるかもしれません。
+  \small
+  特記なき場合、プログラムやソースコードはMIT Licenseで、\\
+  \hspace{1.5\zw}それ以外のコンテンツはCC-BY 4.0で利用可能です。
 \end{frame}
 
 \end{document}
