@@ -4,7 +4,7 @@ YYYY-mm-dd の ○○ 集会で発表した際のスライド資料のソース�
 
 ## コンパイル方法
 
-[matze/mtheme](https://github.com/matze/mtheme) で公開されている Metropolis を使っているため、予めインストールしておく必要があります。
+TeX Live に同梱されている [moloch](https://github.com/jolars/moloch) を利用します。
 
 ```console
 $ latexmk -lualatex
