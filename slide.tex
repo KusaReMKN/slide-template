@@ -22,12 +22,30 @@
   \setbeameroption{show notes on second screen=bottom}
 }
 
-% 日本語フォントの設定
-\usepackage[medium,book,lining]{FiraSans}
-\usepackage[scale=.9]{FiraMono}
-\usepackage[mathrm=sym,mathbf=sym]{firamath-otf}
+\usepackage{mathtools,unicode-math}
+
+% フォントの設定
 \usepackage[match,deluxe,expert]{luatexja-preset}
+\defaultfontfeatures{
+  Numbers = {Lining},
+}
+\setmainfont{Fira Sans}[
+  UprightFont    = {Fira Sans Book},
+  ItalicFont     = {Fira Sans Book Italic},
+  BoldFont       = {Fira Sans Medium},
+  BoldItalicFont = {Fira Sans Medium Italic},
+]
+\setsansfont{Fira Sans}[
+  UprightFont    = {Fira Sans Book},
+  ItalicFont     = {Fira Sans Book Italic},
+  BoldFont       = {Fira Sans Medium},
+  BoldItalicFont = {Fira Sans Medium Italic},
+]
+\setmonofont[Scale=.95]{Fira Mono}
+\setmathfont{Fira Math}
 \renewcommand{\kanjifamilydefault}{\gtdefault}
+\renewcommand{\familydefault}{\sfdefault}
+\DeclareEmphSequence{\bfseries,\ebseries}
 
 % ルビの設定
 \usepackage{luatexja-ruby}
