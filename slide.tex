@@ -55,6 +55,8 @@
 \usepackage{jslogo}
 \usepackage{hyperref}
 
+\DeclarePairedDelimiter\pq\lparen\rparen
+
 \mode<handout>{
   \setbeameroption{show notes}
 }
@@ -127,12 +129,36 @@
 
 \section{はじめに}
 
-\begin{frame}{あにょにょまるぼぼ}
-  あばばまる三世
+\begin{frame}{テキスト（text）のテスト}
 
+  いろはにほへとちりぬるを
+  \textbf{わかよたれそつねならむ}
+  うゐのおくやまけふこえて
+  \textbf{あさきゆめみしゑひもせす}
+
+  The quick brown fox jumps over the lazy dog
+
+  鳥啼く声す夢覚せ
+  \textbf{見よ明け渡る東を}
+  空色栄えて沖す辺に
+  \textbf{帆船群れ居ぬ靄の中}
+
+  \textit{Lorem ipsum dolor sit amet},
+  \textbf{consectetur adipiscing elit},
+  \textbf{\textit{sed do eiusmod tempor incididunt ut labore et dolore magna aliqua}}.
+
+  rmあaあAあ
+  \textit{itあaあAあ}
+  \textbf{bfあaあAあ}
+  \textbf{\textit{bfitあaあAあ}}
+\end{frame}
+
+\begin{frame}{数式（equation）のテスト}
   \begin{equation}
-    4 \arctan 1
-    = 4 \sum_{n=0}^{\infty} \frac{(-1)^{n}}{2n+1}
+    \pq*{\int_{0}^{\infty} \frac{\sin{x}}{\sqrt{x}} \mathrm{d}x}^2
+    = \sum_{k=0}^{\infty} \frac{\pq{2k}!}{2^{2k}\pq{k!}^2} \frac{1}{2k+1}
+    = \prod_{k=1}^{\infty} \frac{4k^2}{4k^2-1}
+    = \frac{\pi}{2}
   \end{equation}
 \end{frame}
 
